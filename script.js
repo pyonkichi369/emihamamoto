@@ -67,15 +67,14 @@ const portfolioItems = [
     description: 'プロフィール撮影',
   },
   // Original (自主制作)
-  // 自主制作動画を追加する場合はここに追加してください
-  // {
-  //   id: 'original-1',
-  //   type: 'video',
-  //   category: 'original',
-  //   src: 'public/videos/xxx.mp4',
-  //   title: 'タイトル',
-  //   description: '説明',
-  // },
+  {
+    id: 'original-1',
+    type: 'video',
+    category: 'original',
+    src: 'public/videos/original-1.mp4',
+    title: '自主制作',
+    description: '自主制作動画',
+  },
 ];
 
 // State
