@@ -30,11 +30,6 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
-        <!-- Language Switcher -->
-        <div class="lang-switcher">
-          <button class="lang-btn active" data-lang="ja">JA</button>
-          <button class="lang-btn" data-lang="en">EN</button>
-        </div>
       </div>
     </div>
   </header>
@@ -49,7 +44,7 @@
             <img src="public/images/IMG_1390.JPG" alt="Emi Hamamoto" class="profile-image">
           </div>
 
-          <div class="profile-label" data-i18n="freelance">フリーランス</div>
+          <div class="profile-label">フリーランス</div>
           <h1 class="profile-name">Emi Hamamoto</h1>
           <div class="profile-location">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -58,12 +53,12 @@
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
               <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
-            <span data-i18n="japan">Japan</span>
+            <span>Japan</span>
           </div>
 
           <!-- Skills -->
           <div class="skills-section">
-            <h3 class="section-label" data-i18n="skills">スキル・得意分野</h3>
+            <h3 class="section-label">スキル・得意分野</h3>
             <div class="skills-list">
               <span class="skill-tag">TikTok</span>
               <span class="skill-tag">Instagram Reels</span>
@@ -73,32 +68,32 @@
               <svg class="icon sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3z"/>
               </svg>
-              <span><span data-i18n="specialty">専門</span>: <strong data-i18n="specialtyValue">縦型動画 / ショートムービー制作</strong></span>
+              <span>専門: <strong>縦型動画 / ショートムービー制作</strong></span>
             </div>
           </div>
 
-          <p class="profile-bio" data-i18n="bio">
+          <p class="profile-bio">
             TikTok、Instagram Reels、YouTube Shortsなど、各プラットフォームに最適化した縦型動画を制作しています。
           </p>
 
           <!-- Experience -->
           <div class="experience-section">
-            <h3 class="section-label" data-i18n="experience">経歴</h3>
+            <h3 class="section-label">経歴</h3>
             <div class="experience-list">
               <div class="experience-item">
-                <span class="experience-year" data-i18n="exp1Year">2024 - 現在</span>
-                <h4 class="experience-title" data-i18n="exp1Title">フリーランス ビデオクリエイター</h4>
-                <p class="experience-desc" data-i18n="exp1Desc">縦型動画・ショートムービーを中心とした映像制作</p>
+                <span class="experience-year">2024 - 現在</span>
+                <h4 class="experience-title">フリーランス ビデオクリエイター</h4>
+                <p class="experience-desc">縦型動画・ショートムービーを中心とした映像制作</p>
               </div>
               <div class="experience-item">
-                <span class="experience-year" data-i18n="exp2Year">2023</span>
-                <h4 class="experience-title" data-i18n="exp2Title">映像制作会社</h4>
-                <p class="experience-desc" data-i18n="exp2Desc">プロモーション動画の企画・撮影・編集</p>
+                <span class="experience-year">2023</span>
+                <h4 class="experience-title">映像制作会社</h4>
+                <p class="experience-desc">プロモーション動画の企画・撮影・編集</p>
               </div>
               <div class="experience-item">
-                <span class="experience-year" data-i18n="exp3Year">2022</span>
-                <h4 class="experience-title" data-i18n="exp3Title">クリエイティブ活動開始</h4>
-                <p class="experience-desc" data-i18n="exp3Desc">TikTok、Instagram Reelsでの動画投稿を開始</p>
+                <span class="experience-year">2022</span>
+                <h4 class="experience-title">クリエイティブ活動開始</h4>
+                <p class="experience-desc">TikTok、Instagram Reelsでの動画投稿を開始</p>
               </div>
             </div>
           </div>
@@ -126,12 +121,12 @@
         <section class="portfolio-section">
           <!-- Tabs -->
           <div class="tabs">
-            <button class="tab active" data-tab="works">
+            <button class="tab active" data-tab="promotions">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="23 7 16 12 23 17 23 7"/>
                 <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
               </svg>
-              <span>制作物</span>
+              <span>プロモーション</span>
             </button>
             <button class="tab" data-tab="model">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -139,6 +134,14 @@
                 <circle cx="12" cy="13" r="4"/>
               </svg>
               <span>モデル</span>
+            </button>
+            <button class="tab" data-tab="original">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+              <span>自主制作</span>
             </button>
           </div>
 
@@ -187,7 +190,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="year"></span> Emi Hamamoto. <span data-i18n="footerRights">All rights reserved.</span></p>
+        <p>&copy; <span id="year"></span> Emi Hamamoto. All rights reserved.</p>
       </div>
     </div>
   </footer>

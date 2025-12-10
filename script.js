@@ -1,256 +1,85 @@
-// Translations
-const translations = {
-  ja: {
-    // Header & Profile
-    freelance: 'フリーランス',
-    japan: 'Japan',
-    skills: 'スキル・得意分野',
-    specialty: '専門',
-    specialtyValue: '縦型動画 / ショートムービー制作',
-    bio: 'TikTok、Instagram Reels、YouTube Shortsなど、各プラットフォームに最適化した縦型動画を制作しています。',
-
-    // Experience
-    experience: '経歴',
-    exp1Year: '2024 - 現在',
-    exp1Title: 'フリーランス ビデオクリエイター',
-    exp1Desc: '縦型動画・ショートムービーを中心とした映像制作',
-    exp2Year: '2023',
-    exp2Title: '映像制作会社',
-    exp2Desc: 'プロモーション動画の企画・撮影・編集',
-    exp3Year: '2022',
-    exp3Title: 'クリエイティブ活動開始',
-    exp3Desc: 'TikTok、Instagram Reelsでの動画投稿を開始',
-
-    // Tabs
-    tabWorks: '制作物',
-    tabModel: 'モデル',
-
-    // Portfolio Items
-    item1Title: 'LOWYA',
-    item1Desc: '家具ブランドのプロモーション動画',
-    item1Tags: ['インテリア', 'プロモーション'],
-    item1Affiliate: 'LOWYA 北欧デザインソファ',
-
-    item2Title: 'Soundcore Aeroclip',
-    item2Desc: 'オーディオ製品のプロモーション動画',
-    item2Tags: ['プロダクト', 'テック'],
-    item2Affiliate: 'Soundcore Aeroclip オープンイヤーイヤホン',
-
-    item3Title: 'ショート動画',
-    item3Desc: 'SNS向けショート動画制作',
-    item3Tags: ['ショート', 'SNS'],
-
-    item4Title: 'ライフスタイル',
-    item4Desc: 'ライフスタイル動画制作',
-    item4Tags: ['ライフスタイル', 'Vlog'],
-
-    item5Title: 'プロモーション',
-    item5Desc: 'ブランドプロモーション動画',
-    item5Tags: ['プロモーション', 'ブランディング'],
-
-    item6Title: 'コンテンツ制作',
-    item6Desc: 'SNSコンテンツ制作',
-    item6Tags: ['SNS', 'コンテンツ'],
-
-    item7Title: 'クリエイティブ',
-    item7Desc: 'クリエイティブ動画制作',
-    item7Tags: ['クリエイティブ', '映像'],
-
-    item8Title: 'ブランド動画',
-    item8Desc: 'ブランド向け映像制作',
-    item8Tags: ['ブランド', 'プロモーション'],
-
-    item9Title: 'ショート動画',
-    item9Desc: 'ショートフォーム動画制作',
-    item9Tags: ['ショート', 'SNS'],
-
-    item10Title: 'コンテンツ',
-    item10Desc: 'オリジナルコンテンツ制作',
-    item10Tags: ['コンテンツ', '映像'],
-
-    modelTitle: 'モデル撮影',
-    modelDesc: 'プロフィール撮影',
-    modelTags: ['モデル', 'ポートレート'],
-
-    // UI
-    loading: '読み込み中...',
-    allLoaded: 'すべての作品を表示しました',
-    noContent: 'コンテンツがありません',
-    recommended: 'おすすめ商品',
-    details: '詳細',
-
-    // Footer
-    footerRights: 'All rights reserved.',
+// Portfolio items
+const portfolioItems = [
+  // Promotion Videos
+  {
+    id: '1',
+    type: 'video',
+    category: 'promotions',
+    src: 'public/videos/v1c044g50000d4sp5a7og65q5kbc7pig.mp4',
+    title: 'ANKER',
+    description: 'Soundcore Aeroclip プロモーション動画',
   },
-  en: {
-    // Header & Profile
-    freelance: 'Freelance',
-    japan: 'Japan',
-    skills: 'Skills',
-    specialty: 'Specialty',
-    specialtyValue: 'Vertical Video / Short Movie Production',
-    bio: 'Creating vertical videos optimized for TikTok, Instagram Reels, YouTube Shorts and other platforms.',
-
-    // Experience
-    experience: 'Experience',
-    exp1Year: '2024 - Present',
-    exp1Title: 'Freelance Video Creator',
-    exp1Desc: 'Video production focused on vertical videos and short movies',
-    exp2Year: '2023',
-    exp2Title: 'Video Production Company',
-    exp2Desc: 'Planning, shooting, and editing promotional videos',
-    exp3Year: '2022',
-    exp3Title: 'Started Creative Activities',
-    exp3Desc: 'Started posting videos on TikTok and Instagram Reels',
-
-    // Tabs
-    tabWorks: 'Works',
-    tabModel: 'Model',
-
-    // Portfolio Items
-    item1Title: 'LOWYA',
-    item1Desc: 'Furniture brand promotion video',
-    item1Tags: ['Interior', 'Promotion'],
-    item1Affiliate: 'LOWYA Nordic Design Sofa',
-
-    item2Title: 'Soundcore Aeroclip',
-    item2Desc: 'Audio product promotion video',
-    item2Tags: ['Product', 'Tech'],
-    item2Affiliate: 'Soundcore Aeroclip Open-Ear Earphones',
-
-    item3Title: 'Short Video',
-    item3Desc: 'SNS short video production',
-    item3Tags: ['Short', 'SNS'],
-
-    item4Title: 'Lifestyle',
-    item4Desc: 'Lifestyle video production',
-    item4Tags: ['Lifestyle', 'Vlog'],
-
-    item5Title: 'Promotion',
-    item5Desc: 'Brand promotion video',
-    item5Tags: ['Promotion', 'Branding'],
-
-    item6Title: 'Content Creation',
-    item6Desc: 'SNS content creation',
-    item6Tags: ['SNS', 'Content'],
-
-    item7Title: 'Creative',
-    item7Desc: 'Creative video production',
-    item7Tags: ['Creative', 'Video'],
-
-    item8Title: 'Brand Video',
-    item8Desc: 'Brand video production',
-    item8Tags: ['Brand', 'Promotion'],
-
-    item9Title: 'Short Video',
-    item9Desc: 'Short form video production',
-    item9Tags: ['Short', 'SNS'],
-
-    item10Title: 'Content',
-    item10Desc: 'Original content production',
-    item10Tags: ['Content', 'Video'],
-
-    modelTitle: 'Model Shooting',
-    modelDesc: 'Profile photography',
-    modelTags: ['Model', 'Portrait'],
-
-    // UI
-    loading: 'Loading...',
-    allLoaded: 'All items loaded',
-    noContent: 'No content available',
-    recommended: 'Recommended',
-    details: 'Details',
-
-    // Footer
-    footerRights: 'All rights reserved.',
-  }
-};
-
-// Get translated portfolio items
-function getPortfolioItems(lang) {
-  const t = translations[lang];
-  return [
-    // Works
-    {
-      id: '1',
-      type: 'video',
-      category: 'works',
-      src: 'public/videos/a479a4f1dc50484597f5a3cb2f9efc84.mp4',
-      title: t.item1Title,
-      description: t.item1Desc,
-      tags: t.item1Tags,
-    },
-    {
-      id: '2',
-      type: 'video',
-      category: 'works',
-      src: 'public/videos/ac6477c43f59444b97bad6e5c6f347e7.mp4',
-      title: t.item2Title,
-      description: t.item2Desc,
-      tags: t.item2Tags,
-    },
-    {
-      id: '3',
-      type: 'video',
-      category: 'works',
-      src: 'public/videos/cf21ed8f748b46d9b8d1d70b39d0ab10.mp4',
-      title: t.item3Title,
-      description: t.item3Desc,
-      tags: t.item3Tags,
-    },
-    {
-      id: '4',
-      type: 'video',
-      category: 'works',
-      src: 'public/videos/v10025g50000clssb1vog65lfm5pmh5g.mp4',
-      title: t.item4Title,
-      description: t.item4Desc,
-      tags: t.item4Tags,
-    },
-    {
-      id: '5',
-      type: 'video',
-      category: 'works',
-      src: 'public/videos/v14044g50000cut92rfog65ln4l58sv0.mp4',
-      title: t.item5Title,
-      description: t.item5Desc,
-      tags: t.item5Tags,
-    },
-    {
-      id: '6',
-      type: 'video',
-      category: 'works',
-      src: 'public/videos/v1c044g50000cqr2h47og65v2hl27ep0.mp4',
-      title: t.item6Title,
-      description: t.item6Desc,
-      tags: t.item6Tags,
-    },
-    {
-      id: '7',
-      type: 'video',
-      category: 'works',
-      src: 'public/videos/v1c044g50000d4sp5a7og65q5kbc7pig.mp4',
-      title: t.item7Title,
-      description: t.item7Desc,
-      tags: t.item7Tags,
-    },
-    // Model
-    {
-      id: 'model-1',
-      type: 'image',
-      category: 'model',
-      src: 'public/images/IMG_1390.JPG',
-      title: t.modelTitle,
-      description: t.modelDesc,
-      tags: t.modelTags,
-    },
-  ];
-}
+  {
+    id: '2',
+    type: 'video',
+    category: 'promotions',
+    src: 'public/videos/cf21ed8f748b46d9b8d1d70b39d0ab10.mp4',
+    title: '株式会社アデランス',
+    description: 'AWANIST プロモーション動画',
+  },
+  {
+    id: '3',
+    type: 'video',
+    category: 'promotions',
+    src: 'public/videos/v1c044g50000cqr2h47og65v2hl27ep0.mp4',
+    title: 'RIZAP 株式会社',
+    description: 'chocoZAP プロモーション動画',
+  },
+  {
+    id: '4',
+    type: 'video',
+    category: 'promotions',
+    src: 'public/videos/v14044g50000cut92rfog65ln4l58sv0.mp4',
+    title: 'ロート製薬株式会社',
+    description: 'メラノCC プロモーション動画',
+  },
+  {
+    id: '5',
+    type: 'video',
+    category: 'promotions',
+    src: 'public/videos/ac6477c43f59444b97bad6e5c6f347e7.mp4',
+    title: '株式会社ベガコーポレーション',
+    description: '家具ブランド LOWYA プロモーション動画',
+  },
+  {
+    id: '6',
+    type: 'video',
+    category: 'promotions',
+    src: 'public/videos/a479a4f1dc50484597f5a3cb2f9efc84.mp4',
+    title: 'DoctorPetit クリニック',
+    description: '韓国美容施術 プロモーション動画',
+  },
+  {
+    id: '7',
+    type: 'video',
+    category: 'promotions',
+    src: 'public/videos/v10025g50000clssb1vog65lfm5pmh5g.mp4',
+    title: 'FIRST ARTMAKE 銀座店',
+    description: '眉アートメイク プロモーション動画',
+  },
+  // Model
+  {
+    id: 'model-1',
+    type: 'image',
+    category: 'model',
+    src: 'public/images/IMG_1390.JPG',
+    title: 'モデル撮影',
+    description: 'プロフィール撮影',
+  },
+  // Original (自主制作)
+  // 自主制作動画を追加する場合はここに追加してください
+  // {
+  //   id: 'original-1',
+  //   type: 'video',
+  //   category: 'original',
+  //   src: 'public/videos/xxx.mp4',
+  //   title: 'タイトル',
+  //   description: '説明',
+  // },
+];
 
 // State
-let currentLang = localStorage.getItem('lang') || 'ja';
-let portfolioItems = getPortfolioItems(currentLang);
-let activeTab = 'works';
+let activeTab = 'promotions';
 let displayedItems = [];
 let currentPage = 0;
 let isLoading = false;
@@ -279,15 +108,6 @@ function init() {
   // Set current year
   yearEl.textContent = new Date().getFullYear();
 
-  // Set up language switcher
-  const langBtns = document.querySelectorAll('.lang-btn');
-  langBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lang = btn.dataset.lang;
-      switchLanguage(lang);
-    });
-  });
-
   // Set up tabs
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -310,55 +130,8 @@ function init() {
   // Intersection Observer for infinite scroll
   setupInfiniteScroll();
 
-  // Apply initial language
-  applyLanguage(currentLang);
-
   // Load initial items
   loadItems();
-}
-
-function switchLanguage(lang) {
-  if (lang === currentLang) return;
-
-  currentLang = lang;
-  localStorage.setItem('lang', lang);
-
-  // Update portfolio items with new language
-  portfolioItems = getPortfolioItems(lang);
-
-  // Apply language to UI
-  applyLanguage(lang);
-
-  // Reload portfolio
-  currentPage = 0;
-  displayedItems = [];
-  hasMore = true;
-  portfolioGrid.innerHTML = '';
-  loadItems();
-}
-
-function applyLanguage(lang) {
-  const t = translations[lang];
-
-  // Update HTML lang attribute
-  document.documentElement.lang = lang;
-
-  // Update language buttons
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-
-  // Update all translatable elements
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if (t[key]) {
-      el.textContent = t[key];
-    }
-  });
-
-  // Update tab labels
-  document.querySelector('[data-tab="works"] span').textContent = t.tabWorks;
-  document.querySelector('[data-tab="model"] span').textContent = t.tabModel;
 }
 
 function switchTab(tabId) {
@@ -386,10 +159,8 @@ function getFilteredItems() {
 function loadItems() {
   if (isLoading || !hasMore) return;
 
-  const t = translations[currentLang];
   isLoading = true;
   loadingEl.style.display = 'flex';
-  loadingEl.querySelector('span').textContent = t.loading;
   endMessageEl.style.display = 'none';
 
   // Simulate loading delay
@@ -410,7 +181,7 @@ function loadItems() {
     loadingEl.style.display = hasMore ? 'flex' : 'none';
 
     if (!hasMore && displayedItems.length > 0) {
-      endMessageEl.textContent = t.allLoaded;
+      endMessageEl.textContent = 'すべての作品を表示しました';
       endMessageEl.style.display = 'block';
     } else {
       endMessageEl.style.display = 'none';
@@ -424,7 +195,7 @@ function loadItems() {
             <polygon points="23 7 16 12 23 17 23 7"/>
             <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
           </svg>
-          <p>${t.noContent}</p>
+          <p>コンテンツがありません</p>
         </div>
       `;
     }
@@ -432,7 +203,6 @@ function loadItems() {
 }
 
 function createCard(item, index) {
-  const t = translations[currentLang];
   const card = document.createElement('div');
   card.className = 'video-card';
   card.addEventListener('click', () => openModal(index));
@@ -466,12 +236,6 @@ function createCard(item, index) {
       ${item.tags ? `
         <div class="card-tags">
           ${item.tags.slice(0, 2).map(tag => `<span>#${tag}</span>`).join('')}
-        </div>
-      ` : ''}
-      ${item.affiliateProduct ? `
-        <div class="card-affiliate">
-          <p class="card-affiliate-label">${t.recommended}</p>
-          <p class="card-affiliate-product">${item.affiliateProduct}</p>
         </div>
       ` : ''}
     </div>
@@ -564,7 +328,6 @@ function showNext() {
 }
 
 function updateModalContent() {
-  const t = translations[currentLang];
   const item = displayedItems[selectedIndex];
   if (!item) return;
 
@@ -590,24 +353,6 @@ function updateModalContent() {
       ${item.tags ? `
         <div class="modal-tags">
           ${item.tags.map(tag => `<span class="modal-tag">${tag}</span>`).join('')}
-        </div>
-      ` : ''}
-      ${item.affiliateProduct ? `
-        <div class="modal-affiliate">
-          <p class="modal-affiliate-label">${t.recommended}</p>
-          <div class="modal-affiliate-content">
-            <p class="modal-affiliate-product">${item.affiliateProduct}</p>
-            ${item.affiliateLink ? `
-              <a href="${item.affiliateLink}" target="_blank" rel="noopener noreferrer" class="modal-affiliate-link">
-                ${t.details}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/>
-                  <line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
-              </a>
-            ` : ''}
-          </div>
         </div>
       ` : ''}
     </div>
