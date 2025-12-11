@@ -428,7 +428,11 @@ function updateModalContent() {
 
   if (isVideo) {
     mediaContent = `
-      <video src="${item.src}" loop playsinline autoplay preload="auto"></video>
+      <div class="modal-video-loading" id="modal-video-loading">
+        <div class="modal-loading-spinner"></div>
+        <span>読み込み中...</span>
+      </div>
+      <video loop playsinline preload="auto" style="opacity: 0;"></video>
       <div class="modal-controls">
         <button class="modal-control-btn" id="mute-btn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -502,6 +506,43 @@ function updateModalContent() {
   if (isVideo) {
     const video = modalContent.querySelector('video');
     const muteBtn = document.getElementById('mute-btn');
+    const loadingOverlay = document.getElementById('modal-video-loading');
+    let videoReady = false;
+
+    // Start loading the video
+    video.src = item.src;
+
+    // Wait for video to be ready to play
+    const onCanPlayThrough = () => {
+      videoReady = true;
+      if (loadingOverlay) {
+        loadingOverlay.style.display = 'none';
+      }
+      video.style.opacity = '1';
+      video.play().catch(() => {});
+    };
+
+    video.addEventListener('canplaythrough', onCanPlayThrough, { once: true });
+
+    // Also handle 'canplay' as fallback for faster response
+    video.addEventListener('canplay', () => {
+      if (!videoReady) {
+        // Allow play but keep checking
+        video.style.opacity = '1';
+        if (loadingOverlay) {
+          loadingOverlay.style.display = 'none';
+        }
+        video.play().catch(() => {});
+        videoReady = true;
+      }
+    }, { once: true });
+
+    // Handle loading errors
+    video.addEventListener('error', () => {
+      if (loadingOverlay) {
+        loadingOverlay.innerHTML = '<span>読み込みエラー</span>';
+      }
+    }, { once: true });
 
     muteBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -521,6 +562,7 @@ function updateModalContent() {
     });
 
     video.addEventListener('click', () => {
+      if (!videoReady) return; // Block click if not ready
       if (video.paused) {
         video.play();
       } else {
