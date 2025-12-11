@@ -1166,13 +1166,18 @@ body {
 /* Portfolio Grid */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 @media (min-width: 640px) {
   .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.75rem;
+    max-width: none;
+    margin: 0;
   }
 }
 
