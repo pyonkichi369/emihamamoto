@@ -87,7 +87,7 @@ const portfolioItems = [
     id: 'model-1',
     type: 'video',
     category: 'model',
-    src: 'public/videos/d921e99a38732c60.mp4',
+    src: 'public/videos/b8c3d7e9f2a1.mp4',
     title: 'Stage On Me 2',
     description: '日韓合同ファッションショー動画',
   },
