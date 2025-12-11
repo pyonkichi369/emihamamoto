@@ -10,4 +10,11 @@
 [[headers]]
   for = "/public/videos/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=31536000, immutable"
+    Accept-Ranges = "bytes"
+    Content-Type = "video/mp4"
+
+[[headers]]
+  for = "/public/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
