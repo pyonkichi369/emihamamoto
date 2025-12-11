@@ -53,14 +53,14 @@ video {
 
 .intro-images {
   position: relative;
-  width: 200px;
+  width: 280px;
   height: 280px;
   margin-bottom: 2rem;
 }
 
 @media (min-width: 640px) {
   .intro-images {
-    width: 280px;
+    width: 380px;
     height: 380px;
     margin-bottom: 3rem;
   }
@@ -68,8 +68,6 @@ video {
 
 .intro-image {
   position: absolute;
-  width: 100%;
-  height: 100%;
   border-radius: 1rem;
   overflow: hidden;
   opacity: 0;
@@ -81,6 +79,34 @@ video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Portrait images (縦長) */
+.intro-image-1,
+.intro-image-3 {
+  width: 140px;
+  height: 200px;
+}
+
+@media (min-width: 640px) {
+  .intro-image-1,
+  .intro-image-3 {
+    width: 180px;
+    height: 260px;
+  }
+}
+
+/* Landscape image (横長) */
+.intro-image-2 {
+  width: 260px;
+  height: 180px;
+}
+
+@media (min-width: 640px) {
+  .intro-image-2 {
+    width: 340px;
+    height: 240px;
+  }
 }
 
 .intro-image-1 {
