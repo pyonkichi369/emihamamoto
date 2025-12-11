@@ -1,0 +1,8 @@
+/public/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/public/videos/*
+  Cache-Control: public, max-age=31536000
+
+/*
+  Cache-Control: public, max-age=300
