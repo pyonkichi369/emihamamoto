@@ -700,13 +700,11 @@ function initMobileMenu() {
 // Header scroll effect
 function initHeaderScroll() {
   const header = document.querySelector('.header');
-  const hero = document.querySelector('.hero');
 
-  if (!header || !hero) return;
+  if (!header) return;
 
   const handleScroll = () => {
-    const heroBottom = hero.offsetHeight;
-    if (window.scrollY > heroBottom - 100) {
+    if (window.scrollY > 50) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
