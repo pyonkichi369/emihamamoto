@@ -408,19 +408,37 @@ function createCard(item, index) {
     const playOverlay = card.querySelector('.play-overlay');
     const placeholder = card.querySelector('.video-placeholder');
     let videoLoaded = false;
+    let canPlay = false;
 
     const loadVideo = () => {
       if (!videoLoaded && video.dataset.src) {
         video.src = video.dataset.src;
-        video.preload = 'metadata';
+        video.preload = 'auto'; // Changed to auto for better buffering
         videoLoaded = true;
-        if (placeholder) {
-          placeholder.style.display = 'none';
-        }
+
+        // Wait for enough data to play smoothly
+        video.addEventListener('canplaythrough', () => {
+          canPlay = true;
+          if (placeholder) {
+            placeholder.style.display = 'none';
+          }
+        }, { once: true });
+
+        // Fallback for canplay
+        video.addEventListener('canplay', () => {
+          setTimeout(() => {
+            if (!canPlay) {
+              canPlay = true;
+              if (placeholder) {
+                placeholder.style.display = 'none';
+              }
+            }
+          }, 500);
+        }, { once: true });
       }
     };
 
-    // Lazy load when card comes into view
+    // Lazy load when card comes into view with larger margin for pre-buffering
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -428,12 +446,21 @@ function createCard(item, index) {
           observer.unobserve(card);
         }
       });
-    }, { rootMargin: '100px' });
+    }, { rootMargin: '200px' }); // Increased margin for earlier loading
     observer.observe(card);
 
     card.addEventListener('mouseenter', () => {
       loadVideo();
-      video.play().catch(() => {});
+      if (canPlay) {
+        video.play().catch(() => {});
+      } else {
+        // Wait for video to be ready before playing
+        const playWhenReady = () => {
+          video.play().catch(() => {});
+          video.removeEventListener('canplay', playWhenReady);
+        };
+        video.addEventListener('canplay', playWhenReady);
+      }
       playOverlay.style.display = 'none';
     });
 
