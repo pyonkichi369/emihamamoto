@@ -636,8 +636,70 @@ function toggleTheme() {
   localStorage.setItem('theme', newTheme);
 }
 
+// Intro Loader
+function initIntro() {
+  const introLoader = document.getElementById('intro-loader');
+  const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
+
+  if (hasSeenIntro) {
+    // Skip intro if already seen in this session
+    introLoader.classList.add('hidden');
+    document.body.classList.remove('intro-active');
+    return;
+  }
+
+  // Show intro
+  document.body.classList.add('intro-active');
+
+  // Hide intro after animation completes (3.5s animation + 0.3s buffer)
+  setTimeout(() => {
+    introLoader.classList.add('hidden');
+    document.body.classList.remove('intro-active');
+    sessionStorage.setItem('hasSeenIntro', 'true');
+  }, 3800);
+}
+
+// Mobile Menu
+function initMobileMenu() {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (!menuToggle || !navMenu) return;
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navMenu.classList.toggle('mobile-active');
+  });
+
+  // Close menu when clicking on a link
+  navMenu.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navMenu.classList.remove('mobile-active');
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const targetPosition = target.offsetTop - headerHeight;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+}
+
 // Start
 document.addEventListener('DOMContentLoaded', () => {
+  initIntro();
   initTheme();
+  initMobileMenu();
   init();
 });

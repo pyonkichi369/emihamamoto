@@ -3,15 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emi Hamamoto - Portfolio</title>
+
+  <!-- Primary Meta Tags -->
+  <title>Emi Hamamoto | 縦型動画クリエイター・ショートムービー制作</title>
+  <meta name="title" content="Emi Hamamoto | 縦型動画クリエイター・ショートムービー制作">
+  <meta name="description" content="フリーランス動画クリエイター Emi Hamamoto のポートフォリオ。TikTok、Instagram Reels、YouTube Shorts向けの縦型動画・プロモーション動画を制作しています。">
+  <meta name="keywords" content="動画クリエイター, 縦型動画, ショートムービー, TikTok, Instagram Reels, YouTube Shorts, プロモーション動画, 映像制作, フリーランス, Emi Hamamoto">
+  <meta name="author" content="Emi Hamamoto">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://emihamamoto.netlify.app/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://emihamamoto.netlify.app/">
+  <meta property="og:title" content="Emi Hamamoto | 縦型動画クリエイター・ショートムービー制作">
+  <meta property="og:description" content="フリーランス動画クリエイター Emi Hamamoto のポートフォリオ。TikTok、Instagram Reels、YouTube Shorts向けの縦型動画・プロモーション動画を制作しています。">
+  <meta property="og:image" content="https://emihamamoto.netlify.app/public/images/7c4e8b2f9a1d3e56.jpg">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="Emi Hamamoto Portfolio">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://emihamamoto.netlify.app/">
+  <meta property="twitter:title" content="Emi Hamamoto | 縦型動画クリエイター・ショートムービー制作">
+  <meta property="twitter:description" content="フリーランス動画クリエイター Emi Hamamoto のポートフォリオ。TikTok、Instagram Reels、YouTube Shorts向けの縦型動画・プロモーション動画を制作しています。">
+  <meta property="twitter:image" content="https://emihamamoto.netlify.app/public/images/7c4e8b2f9a1d3e56.jpg">
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#171717">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Emi Hamamoto",
+    "jobTitle": "動画クリエイター",
+    "description": "TikTok、Instagram Reels、YouTube Shorts向けの縦型動画・プロモーション動画を制作するフリーランスクリエイター",
+    "url": "https://emihamamoto.netlify.app/",
+    "image": "https://emihamamoto.netlify.app/public/images/7c4e8b2f9a1d3e56.jpg",
+    "sameAs": [
+      "https://www.instagram.com/xemooradx/",
+      "https://www.tiktok.com/@xemi511x"
+    ],
+    "knowsAbout": ["縦型動画制作", "ショートムービー", "TikTok", "Instagram Reels", "YouTube Shorts", "プロモーション動画"],
+    "nationality": {
+      "@type": "Country",
+      "name": "Japan"
+    }
+  }
+  </script>
+
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="public/favicon.ico">
 </head>
 <body>
+  <!-- Intro Loader -->
+  <div class="intro-loader" id="intro-loader">
+    <div class="intro-images">
+      <div class="intro-image intro-image-1">
+        <img src="public/images/7c4e8b2f9a1d3e56.jpg" alt="">
+      </div>
+      <div class="intro-image intro-image-2">
+        <img src="public/images/7c4e8b2f9a1d3e56.jpg" alt="">
+      </div>
+      <div class="intro-image intro-image-3">
+        <img src="public/images/7c4e8b2f9a1d3e56.jpg" alt="">
+      </div>
+    </div>
+    <div class="intro-text">
+      <span class="intro-name">Emi Hamamoto</span>
+      <span class="intro-title">Video Creator</span>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="header">
     <div class="header-content">
       <a href="index.html" class="logo">Emi Hamamoto</a>
+
+      <!-- Navigation -->
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#profile" class="nav-link">Profile</a>
+        <a href="#works" class="nav-link">Works</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
       <div class="header-controls">
         <!-- Dark Mode Toggle -->
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
@@ -30,95 +109,116 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <div class="container">
-      <div class="grid-layout">
-        <!-- Left: Profile -->
-        <aside class="profile-section">
-          <div class="profile-image-wrapper">
-            <img src="public/images/7c4e8b2f9a1d3e56.jpg" alt="Emi Hamamoto" class="profile-image">
-          </div>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="public/images/7c4e8b2f9a1d3e56.jpg" alt="Emi Hamamoto">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-subtitle">Video Creator</p>
+      <h1 class="hero-title">Emi Hamamoto</h1>
+      <p class="hero-description">縦型動画 / ショートムービー制作</p>
+      <div class="hero-social">
+        <a href="https://www.instagram.com/xemooradx/" target="_blank" rel="noopener noreferrer" class="hero-social-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@xemi511x" target="_blank" rel="noopener noreferrer" class="hero-social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+          </svg>
+        </a>
+      </div>
+      <a href="#works" class="hero-scroll">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+    </div>
+  </section>
 
-          <div class="profile-label">フリーランス</div>
-          <h1 class="profile-name">Emi Hamamoto</h1>
-          <div class="profile-location">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-            <span>Japan</span>
-          </div>
+  <!-- Profile Section -->
+  <section class="profile-wrapper" id="profile">
+    <div class="container">
+      <h2 class="section-title">Profile</h2>
+      <div class="profile-grid">
+        <div class="profile-image-wrapper">
+          <img src="public/images/7c4e8b2f9a1d3e56.jpg" alt="Emi Hamamoto" class="profile-image">
+        </div>
+        <div class="profile-info">
+          <div class="profile-label">フリーランス ビデオクリエイター</div>
+          <h3 class="profile-name">Emi Hamamoto</h3>
+          <p class="profile-bio">
+            TikTok、Instagram Reels、YouTube Shortsなど、各プラットフォームに最適化した縦型動画を制作しています。
+            企業のプロモーション動画からモデル撮影まで、幅広いジャンルの映像制作を手がけています。
+          </p>
 
           <!-- Skills -->
           <div class="skills-section">
-            <h3 class="section-label">スキル・得意分野</h3>
+            <h4 class="subsection-label">スキル・得意分野</h4>
             <div class="skills-list">
               <span class="skill-tag">TikTok</span>
               <span class="skill-tag">Instagram Reels</span>
               <span class="skill-tag">YouTube Shorts</span>
-            </div>
-            <div class="specialty">
-              <svg class="icon sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3z"/>
-              </svg>
-              <span>専門: <strong>縦型動画 / ショートムービー制作</strong></span>
+              <span class="skill-tag">プロモーション動画</span>
+              <span class="skill-tag">モデル撮影</span>
             </div>
           </div>
-
-          <p class="profile-bio">
-            TikTok、Instagram Reels、YouTube Shortsなど、各プラットフォームに最適化した縦型動画を制作しています。
-          </p>
 
           <!-- Experience -->
           <div class="experience-section">
-            <h3 class="section-label">経歴</h3>
+            <h4 class="subsection-label">経歴</h4>
             <div class="experience-list">
               <div class="experience-item">
                 <span class="experience-year">2024 - 現在</span>
-                <h4 class="experience-title">フリーランス ビデオクリエイター</h4>
-                <p class="experience-desc">縦型動画・ショートムービーを中心とした映像制作</p>
+                <div class="experience-content">
+                  <h5 class="experience-title">フリーランス ビデオクリエイター</h5>
+                  <p class="experience-desc">縦型動画・ショートムービーを中心とした映像制作</p>
+                </div>
               </div>
               <div class="experience-item">
                 <span class="experience-year">2023</span>
-                <h4 class="experience-title">映像制作会社</h4>
-                <p class="experience-desc">プロモーション動画の企画・撮影・編集</p>
+                <div class="experience-content">
+                  <h5 class="experience-title">映像制作会社</h5>
+                  <p class="experience-desc">プロモーション動画の企画・撮影・編集</p>
+                </div>
               </div>
               <div class="experience-item">
                 <span class="experience-year">2022</span>
-                <h4 class="experience-title">クリエイティブ活動開始</h4>
-                <p class="experience-desc">TikTok、Instagram Reelsでの動画投稿を開始</p>
+                <div class="experience-content">
+                  <h5 class="experience-title">クリエイティブ活動開始</h5>
+                  <p class="experience-desc">TikTok、Instagram Reelsでの動画投稿を開始</p>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <!-- Social Links -->
-          <div class="social-links">
-            <a href="https://www.instagram.com/xemooradx/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-              </svg>
-              Instagram
-            </a>
-            <a href="https://www.tiktok.com/@xemi511x" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-              </svg>
-              TikTok
-            </a>
-          </div>
-        </aside>
+  <!-- Works Section -->
+  <section class="works-section" id="works">
+    <div class="container">
+      <h2 class="section-title">Works</h2>
 
-        <!-- Right: Portfolio -->
-        <section class="portfolio-section">
+      <!-- Portfolio Section -->
+      <div class="portfolio-section">
           <!-- Tabs -->
           <div class="tabs">
             <button class="tab active" data-tab="promotions">
@@ -160,10 +260,35 @@
           <div class="end-message" id="end-message" style="display: none;">
             すべての作品を表示しました
           </div>
-        </section>
       </div>
     </div>
-  </main>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="contact-text">
+        お仕事のご依頼・ご相談はSNSのDMよりお気軽にお問い合わせください。
+      </p>
+      <div class="contact-social">
+        <a href="https://www.instagram.com/xemooradx/" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.tiktok.com/@xemi511x" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+          </svg>
+          <span>TikTok</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
