@@ -90,12 +90,20 @@ const portfolioItems = [
     id: '7',
     type: 'video',
     category: 'promotions',
+    src: 'public/videos/2ea0778ab2f7d742.mp4',
+    title: '株式会社青成堂',
+    description: 'プロモーション動画',
+  },
+  {
+    id: '8',
+    type: 'video',
+    category: 'promotions',
     src: 'public/videos/a479a4f1dc50484597f5a3cb2f9efc84.mp4',
     title: 'DoctorPetit クリニック',
     description: '韓国美容施術 プロモーション動画',
   },
   {
-    id: '8',
+    id: '9',
     type: 'video',
     category: 'promotions',
     src: 'public/videos/v10025g50000clssb1vog65lfm5pmh5g.mp4',
@@ -103,7 +111,7 @@ const portfolioItems = [
     description: '眉アートメイク プロモーション動画',
   },
   {
-    id: '9',
+    id: '10',
     type: 'video',
     category: 'promotions',
     src: 'public/videos/29b9360e37689bf2.mp4',
@@ -111,20 +119,12 @@ const portfolioItems = [
     description: '店舗紹介動画',
   },
   {
-    id: '10',
+    id: '11',
     type: 'video',
     category: 'promotions',
     src: 'public/videos/bb3314d54e25b36a.mp4',
     title: 'シーシャバー 柘榴',
     description: '店舗紹介動画',
-  },
-  {
-    id: '11',
-    type: 'video',
-    category: 'promotions',
-    src: 'public/videos/2ea0778ab2f7d742.mp4',
-    title: 'プロモーション',
-    description: 'プロモーション動画',
   },
   // Model
   {
