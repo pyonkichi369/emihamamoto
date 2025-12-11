@@ -148,6 +148,21 @@ const portfolioItems = [
     title: 'モデル撮影',
     description: 'ポートレート撮影',
   },
+  {
+    id: 'model-6',
+    type: 'gallery',
+    category: 'model',
+    images: [
+      'public/images/283d7ce8df1a.jpg',
+      'public/images/71a1ac486ba5.jpg',
+      'public/images/8f06b5bd2172.jpg',
+      'public/images/8cc93b2bcd36.jpg',
+      'public/images/a87f99064c7f.jpg',
+      'public/images/f22781ddef2f.jpg',
+    ],
+    title: 'モデル撮影',
+    description: 'ポートレート撮影',
+  },
   // Original (自主制作)
   {
     id: 'original-1',
