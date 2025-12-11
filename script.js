@@ -91,17 +91,18 @@ const portfolioItems = [
     title: 'Stage On Me 2',
     description: '日韓合同ファッションショー動画',
   },
-  // {
-  //   id: 'model-2',
-  //   type: 'gallery',
-  //   category: 'model',
-  //   images: [
-  //     'public/images/7c4e8b2f9a1d3e56.jpg',
-  //     // 追加画像はここに追加
-  //   ],
-  //   title: 'モデル撮影',
-  //   description: 'プロフィール撮影',
-  // },
+  {
+    id: 'model-2',
+    type: 'gallery',
+    category: 'model',
+    images: [
+      'public/images/a3b7c9d2e4f6.jpg',
+      'public/images/f1e2d3c4b5a6.jpg',
+      'public/images/5c90856162df.jpg',
+    ],
+    title: 'モデル撮影',
+    description: 'プロフィール撮影',
+  },
   // Original (自主制作)
   {
     id: 'original-1',
