@@ -118,6 +118,14 @@ const portfolioItems = [
     title: 'シーシャバー 柘榴',
     description: '店舗紹介動画',
   },
+  {
+    id: '11',
+    type: 'video',
+    category: 'promotions',
+    src: 'public/videos/2ea0778ab2f7d742.mp4',
+    title: 'プロモーション',
+    description: 'プロモーション動画',
+  },
   // Model
   {
     id: 'model-1',
