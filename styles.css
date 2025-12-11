@@ -290,11 +290,46 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: none;
+  z-index: 50;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.header.scrolled {
   background: var(--header-bg);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-light);
-  z-index: 50;
-  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Header colors when over hero (transparent) */
+.header:not(.scrolled) .logo {
+  color: white;
+}
+
+.header:not(.scrolled) .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.header:not(.scrolled) .nav-link:hover {
+  color: white;
+}
+
+.header:not(.scrolled) .theme-toggle {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.header:not(.scrolled) .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.header:not(.scrolled) .theme-toggle svg {
+  color: white;
+}
+
+.header:not(.scrolled) .menu-toggle span {
+  background: white;
 }
 
 .header-content {

@@ -697,9 +697,30 @@ function initMobileMenu() {
 }
 
 // Start
+// Header scroll effect
+function initHeaderScroll() {
+  const header = document.querySelector('.header');
+  const hero = document.querySelector('.hero');
+
+  if (!header || !hero) return;
+
+  const handleScroll = () => {
+    const heroBottom = hero.offsetHeight;
+    if (window.scrollY > heroBottom - 100) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // Check initial state
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initIntro();
   initTheme();
   initMobileMenu();
+  initHeaderScroll();
   init();
 });
