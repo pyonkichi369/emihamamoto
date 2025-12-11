@@ -246,12 +246,14 @@ function createCard(item, index) {
   const isGallery = item.type === 'gallery';
   const thumbnailSrc = isGallery ? item.images[0] : item.src;
 
+  // For videos, show a placeholder initially and lazy load the video
   card.innerHTML = `
     <div class="card-thumbnail">
       ${isVideo ? `
-        <video class="card-media" src="${item.src}" muted loop playsinline preload="metadata"></video>
+        <video class="card-media" data-src="${item.src}" muted loop playsinline preload="none" poster=""></video>
+        <div class="video-placeholder"></div>
       ` : `
-        <img class="card-media" src="${thumbnailSrc}" alt="${item.title}">
+        <img class="card-media" src="${thumbnailSrc}" alt="${item.title}" loading="lazy">
       `}
       ${isVideo ? `
         <div class="play-overlay">
@@ -295,12 +297,37 @@ function createCard(item, index) {
     </div>
   `;
 
-  // Hover video preview
+  // Lazy load video and hover preview
   if (isVideo) {
     const video = card.querySelector('video');
     const playOverlay = card.querySelector('.play-overlay');
+    const placeholder = card.querySelector('.video-placeholder');
+    let videoLoaded = false;
+
+    const loadVideo = () => {
+      if (!videoLoaded && video.dataset.src) {
+        video.src = video.dataset.src;
+        video.preload = 'metadata';
+        videoLoaded = true;
+        if (placeholder) {
+          placeholder.style.display = 'none';
+        }
+      }
+    };
+
+    // Lazy load when card comes into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadVideo();
+          observer.unobserve(card);
+        }
+      });
+    }, { rootMargin: '100px' });
+    observer.observe(card);
 
     card.addEventListener('mouseenter', () => {
+      loadVideo();
       video.play().catch(() => {});
       playOverlay.style.display = 'none';
     });
@@ -401,7 +428,7 @@ function updateModalContent() {
 
   if (isVideo) {
     mediaContent = `
-      <video src="${item.src}" loop playsinline autoplay></video>
+      <video src="${item.src}" loop playsinline autoplay preload="auto"></video>
       <div class="modal-controls">
         <button class="modal-control-btn" id="mute-btn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

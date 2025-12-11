@@ -1249,6 +1249,25 @@ body:has(.modal.active) .video-card video {
   background: var(--bg-tertiary);
 }
 
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-placeholder::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--text-secondary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
 @media (min-width: 640px) {
   .card-thumbnail {
     border-radius: 0.75rem;
