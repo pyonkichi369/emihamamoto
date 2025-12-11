@@ -1,3 +1,31 @@
+// Prevent download of images and videos
+(function() {
+  // Disable right-click context menu on images and videos
+  document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Disable drag on images and videos
+  document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Disable keyboard shortcuts for saving
+  document.addEventListener('keydown', function(e) {
+    // Ctrl+S or Cmd+S
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+      e.preventDefault();
+      return false;
+    }
+  });
+})();
+
 // Portfolio items
 const portfolioItems = [
   // Promotion Videos
@@ -327,7 +355,7 @@ function createCard(item, index) {
   card.innerHTML = `
     <div class="card-thumbnail">
       ${isVideo ? `
-        <video class="card-media" data-src="${item.src}" muted loop playsinline preload="none" poster=""></video>
+        <video class="card-media" data-src="${item.src}" muted loop playsinline preload="none" poster="" controlslist="nodownload" disablepictureinpicture oncontextmenu="return false;"></video>
         <div class="video-placeholder"></div>
       ` : `
         <img class="card-media" src="${thumbnailSrc}" alt="${item.title}" loading="lazy">
@@ -512,7 +540,7 @@ function updateModalContent() {
         <div class="modal-loading-spinner"></div>
         <span>読み込み中...</span>
       </div>
-      <video loop playsinline preload="auto" style="opacity: 0;"></video>
+      <video loop playsinline preload="auto" style="opacity: 0;" controlslist="nodownload" disablepictureinpicture oncontextmenu="return false;"></video>
       <div class="modal-controls">
         <button class="modal-control-btn" id="mute-btn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

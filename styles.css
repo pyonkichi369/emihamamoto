@@ -5,6 +5,33 @@
   padding: 0;
 }
 
+/* Prevent image/video download */
+img, video {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+}
+
+/* Re-enable pointer events for video controls */
+video {
+  pointer-events: auto;
+}
+
+/* Wrapper to block right-click on media */
+.media-protected {
+  position: relative;
+}
+
+.media-protected::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
 /* Intro Loader */
 .intro-loader {
   position: fixed;
