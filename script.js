@@ -85,14 +85,6 @@ const portfolioItems = [
   // Model
   {
     id: 'model-1',
-    type: 'video',
-    category: 'model',
-    src: 'public/videos/b8c3d7e9f2a1.mp4',
-    title: 'Stage On Me 2',
-    description: '日韓合同ファッションショー動画',
-  },
-  {
-    id: 'model-2',
     type: 'gallery',
     category: 'model',
     images: [
@@ -119,6 +111,14 @@ const portfolioItems = [
     src: 'public/videos/c5a9f2e8d1b7.mp4',
     title: '自主制作',
     description: '自主制作動画',
+  },
+  {
+    id: 'original-3',
+    type: 'video',
+    category: 'original',
+    src: 'public/videos/b8c3d7e9f2a1.mp4',
+    title: 'Stage On Me 2',
+    description: '日韓合同ファッションショー動画',
   },
 ];
 
