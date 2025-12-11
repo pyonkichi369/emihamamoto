@@ -89,6 +89,7 @@ const portfolioItems = [
     category: 'model',
     images: [
       'public/images/a3b7c9d2e4f6.jpg',
+      'public/images/558136a3baa0.jpg',
       'public/images/f1e2d3c4b5a6.jpg',
       'public/images/5c90856162df.jpg',
     ],
@@ -103,6 +104,8 @@ const portfolioItems = [
       'public/images/1d9581dbe859.jpg',
       'public/images/9b3c5e97b22e.jpg',
       'public/images/24b085366aa9.jpg',
+      'public/images/0b926f8c028e.jpg',
+      'public/images/305d8375f264.jpg',
       'public/images/305d8375f264.jpg',
       'public/images/817d53e2a478.jpg',
       'public/images/951d60293ff4.jpg',
@@ -465,6 +468,9 @@ function updateModalContent() {
   // Reset gallery index when switching items
   currentGalleryIndex = 0;
 
+  // Reset landscape class
+  modalContent.classList.remove('landscape');
+
   let mediaContent = '';
 
   if (isVideo) {
@@ -616,6 +622,24 @@ function updateModalContent() {
   if (isGallery && item.images.length > 1) {
     setupGalleryControls(item.images);
   }
+
+  // Check landscape for single images (gallery with 1 image or regular image)
+  if (isGallery && item.images.length === 1) {
+    checkImageOrientation(item.images[0]);
+  } else if (!isVideo && !isGallery && item.src) {
+    checkImageOrientation(item.src);
+  }
+}
+
+function checkImageOrientation(src) {
+  const img = new Image();
+  img.onload = function() {
+    const isLandscape = this.width > this.height;
+    if (modalContent) {
+      modalContent.classList.toggle('landscape', isLandscape);
+    }
+  };
+  img.src = src;
 }
 
 // Store gallery images for current item
@@ -627,6 +651,11 @@ function setupGalleryControls(images) {
   const nextBtn = document.getElementById('gallery-next');
   const dots = document.querySelectorAll('.gallery-dot');
   const galleryImage = document.getElementById('gallery-image');
+
+  // Check if first image is landscape
+  if (images[0]) {
+    checkImageOrientation(images[0]);
+  }
 
   // Navigation buttons
   prevBtn.addEventListener('click', (e) => {
@@ -686,6 +715,9 @@ function goToGallerySlide(index) {
   const galleryImage = document.getElementById('gallery-image');
   if (galleryImage && currentGalleryImages[index]) {
     galleryImage.src = currentGalleryImages[index];
+
+    // Check if image is landscape and update modal-content class
+    checkImageOrientation(currentGalleryImages[index]);
   }
 
   // Update dots

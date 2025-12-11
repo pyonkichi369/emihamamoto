@@ -1812,10 +1812,19 @@ body:has(.modal.active) .video-card video {
   background: black;
 }
 
+.modal-content.landscape {
+  aspect-ratio: 16 / 9;
+  max-width: 90vw;
+}
+
 @media (min-width: 640px) {
   .modal-content {
     max-height: 90vh;
     border-radius: 1rem;
+  }
+
+  .modal-content.landscape {
+    max-width: 85vw;
   }
 }
 
@@ -1827,6 +1836,10 @@ body:has(.modal.active) .video-card video {
   height: 100%;
   object-fit: cover;
   transition: opacity 0.3s ease;
+}
+
+.modal-content.landscape > img {
+  object-fit: contain;
 }
 
 /* Modal Video Loading Overlay */
