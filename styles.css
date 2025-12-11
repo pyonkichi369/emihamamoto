@@ -305,31 +305,31 @@ body {
 
 /* Header colors when over hero (transparent) */
 .header:not(.scrolled) .logo {
-  color: white;
+  color: var(--text-primary);
 }
 
 .header:not(.scrolled) .nav-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
 }
 
 .header:not(.scrolled) .nav-link:hover {
-  color: white;
+  color: var(--text-primary);
 }
 
 .header:not(.scrolled) .theme-toggle {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .header:not(.scrolled) .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .header:not(.scrolled) .theme-toggle svg {
-  color: white;
+  color: var(--text-primary);
 }
 
 .header:not(.scrolled) .menu-toggle span {
-  background: white;
+  background: var(--text-primary);
 }
 
 .header-content {
