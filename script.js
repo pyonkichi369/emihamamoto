@@ -110,6 +110,14 @@ const portfolioItems = [
     title: 'CBeauty 株式会社',
     description: '店舗紹介動画',
   },
+  {
+    id: '10',
+    type: 'video',
+    category: 'promotions',
+    src: 'public/videos/bb3314d54e25b36a.mp4',
+    title: 'プロモーション',
+    description: 'プロモーション動画',
+  },
   // Model
   {
     id: 'model-1',
