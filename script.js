@@ -1,16 +1,33 @@
 // Portfolio items
 const portfolioItems = [
   // Promotion Videos
+  // アフィリエイトリンクを追加する場合は以下のように設定:
+  // affiliate: {
+  //   product: '商品名',
+  //   url: 'https://affiliate-link.com/...'
+  // }
   {
     id: '1',
+    type: 'video',
+    category: 'promotions',
+    src: 'public/videos/f8fecd42a7a407ef.mp4',
+    title: '株式会社Gold Star',
+    description: '3D フルーツアイス プロモーション動画',
+  },
+  {
+    id: '2',
     type: 'video',
     category: 'promotions',
     src: 'public/videos/v1c044g50000d4sp5a7og65q5kbc7pig.mp4',
     title: 'ANKER',
     description: 'Soundcore Aeroclip プロモーション動画',
+    // affiliate: {
+    //   product: 'Soundcore Aeroclip',
+    //   url: 'https://example.com/affiliate-link'
+    // }
   },
   {
-    id: '2',
+    id: '3',
     type: 'video',
     category: 'promotions',
     src: 'public/videos/cf21ed8f748b46d9b8d1d70b39d0ab10.mp4',
@@ -18,7 +35,7 @@ const portfolioItems = [
     description: 'AWANIST プロモーション動画',
   },
   {
-    id: '3',
+    id: '4',
     type: 'video',
     category: 'promotions',
     src: 'public/videos/v1c044g50000cqr2h47og65v2hl27ep0.mp4',
@@ -26,7 +43,7 @@ const portfolioItems = [
     description: 'chocoZAP プロモーション動画',
   },
   {
-    id: '4',
+    id: '5',
     type: 'video',
     category: 'promotions',
     src: 'public/videos/v14044g50000cut92rfog65ln4l58sv0.mp4',
@@ -34,7 +51,7 @@ const portfolioItems = [
     description: 'メラノCC プロモーション動画',
   },
   {
-    id: '5',
+    id: '6',
     type: 'video',
     category: 'promotions',
     src: 'public/videos/ac6477c43f59444b97bad6e5c6f347e7.mp4',
@@ -42,7 +59,7 @@ const portfolioItems = [
     description: '家具ブランド LOWYA プロモーション動画',
   },
   {
-    id: '6',
+    id: '7',
     type: 'video',
     category: 'promotions',
     src: 'public/videos/a479a4f1dc50484597f5a3cb2f9efc84.mp4',
@@ -50,28 +67,47 @@ const portfolioItems = [
     description: '韓国美容施術 プロモーション動画',
   },
   {
-    id: '7',
+    id: '8',
     type: 'video',
     category: 'promotions',
     src: 'public/videos/v10025g50000clssb1vog65lfm5pmh5g.mp4',
     title: 'FIRST ARTMAKE 銀座店',
     description: '眉アートメイク プロモーション動画',
   },
+  {
+    id: '9',
+    type: 'video',
+    category: 'promotions',
+    src: 'public/videos/29b9360e37689bf2.mp4',
+    title: 'CBeauty 株式会社',
+    description: '店舗紹介動画',
+  },
   // Model
   {
     id: 'model-1',
-    type: 'image',
+    type: 'video',
     category: 'model',
-    src: 'public/images/IMG_1390.JPG',
-    title: 'モデル撮影',
-    description: 'プロフィール撮影',
+    src: 'public/videos/d921e99a38732c60.mp4',
+    title: 'Stage On Me 2',
+    description: '日韓合同ファッションショー動画',
   },
+  // {
+  //   id: 'model-2',
+  //   type: 'gallery',
+  //   category: 'model',
+  //   images: [
+  //     'public/images/7c4e8b2f9a1d3e56.jpg',
+  //     // 追加画像はここに追加
+  //   ],
+  //   title: 'モデル撮影',
+  //   description: 'プロフィール撮影',
+  // },
   // Original (自主制作)
   {
     id: 'original-1',
     type: 'video',
     category: 'original',
-    src: 'public/videos/original-1.mp4',
+    src: 'public/videos/68b9784134dff87a.mp4',
     title: '自主制作',
     description: '自主制作動画',
   },
@@ -207,26 +243,39 @@ function createCard(item, index) {
   card.addEventListener('click', () => openModal(index));
 
   const isVideo = item.type === 'video' && /\.(mp4|webm|mov|m4v)$/i.test(item.src);
+  const isGallery = item.type === 'gallery';
+  const thumbnailSrc = isGallery ? item.images[0] : item.src;
 
   card.innerHTML = `
     <div class="card-thumbnail">
       ${isVideo ? `
         <video class="card-media" src="${item.src}" muted loop playsinline preload="metadata"></video>
       ` : `
-        <img class="card-media" src="${item.src}" alt="${item.title}">
+        <img class="card-media" src="${thumbnailSrc}" alt="${item.title}">
       `}
-      <div class="play-overlay">
-        <div class="play-button">
+      ${isVideo ? `
+        <div class="play-overlay">
+          <div class="play-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </div>
+        </div>
+        <div class="hover-overlay">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <polygon points="5 3 19 12 5 21 5 3"/>
           </svg>
         </div>
-      </div>
-      <div class="hover-overlay">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <polygon points="5 3 19 12 5 21 5 3"/>
-        </svg>
-      </div>
+      ` : ''}
+      ${isGallery && item.images.length > 1 ? `
+        <div class="gallery-indicator">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <rect x="7" y="7" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <span>${item.images.length}</span>
+        </div>
+      ` : ''}
       ${item.tags && item.tags[0] ? `<span class="card-tag">${item.tags[0]}</span>` : ''}
     </div>
     <div class="card-info">
@@ -235,6 +284,12 @@ function createCard(item, index) {
       ${item.tags ? `
         <div class="card-tags">
           ${item.tags.slice(0, 2).map(tag => `<span>#${tag}</span>`).join('')}
+        </div>
+      ` : ''}
+      ${item.affiliate ? `
+        <div class="card-affiliate">
+          <div class="card-affiliate-label">PR</div>
+          <div class="card-affiliate-product">${item.affiliate.product}</div>
         </div>
       ` : ''}
     </div>
@@ -277,6 +332,9 @@ function openModal(index) {
     video.pause();
     video.currentTime = 0;
   });
+
+  // Clear modal content before updating
+  modalContent.innerHTML = '';
 
   selectedIndex = index;
   modal.classList.add('active');
@@ -326,14 +384,23 @@ function showNext() {
   }
 }
 
+// Gallery state
+let currentGalleryIndex = 0;
+
 function updateModalContent() {
   const item = displayedItems[selectedIndex];
   if (!item) return;
 
   const isVideo = item.type === 'video' && /\.(mp4|webm|mov|m4v)$/i.test(item.src);
+  const isGallery = item.type === 'gallery' && item.images && item.images.length > 0;
 
-  modalContent.innerHTML = `
-    ${isVideo ? `
+  // Reset gallery index when switching items
+  currentGalleryIndex = 0;
+
+  let mediaContent = '';
+
+  if (isVideo) {
+    mediaContent = `
       <video src="${item.src}" loop playsinline autoplay></video>
       <div class="modal-controls">
         <button class="modal-control-btn" id="mute-btn">
@@ -343,9 +410,38 @@ function updateModalContent() {
           </svg>
         </button>
       </div>
-    ` : `
-      <img src="${item.src}" alt="${item.title}">
-    `}
+    `;
+  } else if (isGallery) {
+    // 画像が1枚の場合は通常の画像として表示
+    if (item.images.length === 1) {
+      mediaContent = `<img src="${item.images[0]}" alt="${item.title}">`;
+    } else {
+      // 複数画像の場合はギャラリー
+      mediaContent = `
+        <img src="${item.images[0]}" alt="${item.title}" id="gallery-image">
+        <button class="gallery-nav gallery-nav-prev" id="gallery-prev">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        <button class="gallery-nav gallery-nav-next" id="gallery-next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+        <div class="gallery-dots" id="gallery-dots">
+          ${item.images.map((_, i) => `
+            <button class="gallery-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></button>
+          `).join('')}
+        </div>
+      `;
+    }
+  } else {
+    mediaContent = `<img src="${item.src}" alt="${item.title}">`;
+  }
+
+  modalContent.innerHTML = `
+    ${mediaContent}
     <div class="modal-info">
       <h3 class="modal-title">${item.title}</h3>
       ${item.description ? `<p class="modal-description">${item.description}</p>` : ''}
@@ -354,12 +450,28 @@ function updateModalContent() {
           ${item.tags.map(tag => `<span class="modal-tag">${tag}</span>`).join('')}
         </div>
       ` : ''}
+      ${item.affiliate ? `
+        <div class="modal-affiliate">
+          <div class="modal-affiliate-label">PR - 商品リンク</div>
+          <div class="modal-affiliate-content">
+            <span class="modal-affiliate-product">${item.affiliate.product}</span>
+            <a href="${item.affiliate.url}" target="_blank" rel="noopener noreferrer" class="modal-affiliate-link" onclick="event.stopPropagation();">
+              購入する
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ` : ''}
     </div>
   `;
 
   modalCounter.textContent = `${selectedIndex + 1} / ${displayedItems.length}`;
 
-  // Set up mute button
+  // Set up video controls
   if (isVideo) {
     const video = modalContent.querySelector('video');
     const muteBtn = document.getElementById('mute-btn');
@@ -381,7 +493,6 @@ function updateModalContent() {
       `;
     });
 
-    // Click video to toggle play/pause
     video.addEventListener('click', () => {
       if (video.paused) {
         video.play();
@@ -390,6 +501,88 @@ function updateModalContent() {
       }
     });
   }
+
+  // Set up gallery controls
+  if (isGallery && item.images.length > 1) {
+    setupGalleryControls(item.images);
+  }
+}
+
+// Store gallery images for current item
+let currentGalleryImages = [];
+
+function setupGalleryControls(images) {
+  currentGalleryImages = images;
+  const prevBtn = document.getElementById('gallery-prev');
+  const nextBtn = document.getElementById('gallery-next');
+  const dots = document.querySelectorAll('.gallery-dot');
+  const galleryImage = document.getElementById('gallery-image');
+
+  // Navigation buttons
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateGallery(-1);
+  });
+
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateGallery(1);
+  });
+
+  // Dot navigation
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const index = parseInt(dot.dataset.index);
+      goToGallerySlide(index);
+    });
+  });
+
+  // Touch/swipe support on image
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  galleryImage.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  galleryImage.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        navigateGallery(1);
+      } else {
+        navigateGallery(-1);
+      }
+    }
+  }, { passive: true });
+}
+
+function navigateGallery(direction) {
+  const total = currentGalleryImages.length;
+  let newIndex = currentGalleryIndex + direction;
+  if (newIndex < 0) newIndex = total - 1;
+  if (newIndex >= total) newIndex = 0;
+  goToGallerySlide(newIndex);
+}
+
+function goToGallerySlide(index) {
+  currentGalleryIndex = index;
+
+  // Update image
+  const galleryImage = document.getElementById('gallery-image');
+  if (galleryImage && currentGalleryImages[index]) {
+    galleryImage.src = currentGalleryImages[index];
+  }
+
+  // Update dots
+  const dots = document.querySelectorAll('.gallery-dot');
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
 }
 
 function handleKeydown(e) {
