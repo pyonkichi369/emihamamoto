@@ -111,6 +111,14 @@ const portfolioItems = [
     title: '自主制作',
     description: '自主制作動画',
   },
+  {
+    id: 'original-2',
+    type: 'video',
+    category: 'original',
+    src: 'public/videos/c5a9f2e8d1b7.mp4',
+    title: '自主制作',
+    description: '自主制作動画',
+  },
 ];
 
 // State
