@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+JP:wght@300;400;500&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 /* Reset and Base Styles */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -208,10 +210,11 @@ video {
 }
 
 .intro-name {
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 300;
   color: white;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
 }
 
 @media (min-width: 640px) {
@@ -249,8 +252,8 @@ body .footer {
 
 :root {
   /* Light Mode Colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
+  --bg-primary: #fafaf8;
+  --bg-secondary: #f5f3ef;
   --bg-tertiary: #f3f4f6;
   --text-primary: #171717;
   --text-secondary: #4b5563;
@@ -270,12 +273,12 @@ body .footer {
   --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
   /* Accent Colors */
-  --purple-50: #faf5ff;
-  --purple-100: #f3e8ff;
-  --purple-600: #9333ea;
-  --pink-50: #fdf2f8;
-  --pink-600: #db2777;
-  --gradient-accent: linear-gradient(135deg, var(--purple-600), var(--pink-600));
+  --purple-50: rgba(200, 169, 110, 0.08);
+  --purple-100: rgba(200, 169, 110, 0.15);
+  --purple-600: #c8a96e;
+  --pink-50: rgba(232, 213, 176, 0.08);
+  --pink-600: #e8d5b0;
+  --gradient-accent: linear-gradient(135deg, #c8a96e, #e8d5b0);
 }
 
 /* Dark Mode Colors */
@@ -299,13 +302,13 @@ body .footer {
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
   --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  --purple-50: rgba(147, 51, 234, 0.1);
-  --purple-100: rgba(147, 51, 234, 0.2);
-  --pink-50: rgba(219, 39, 119, 0.1);
+  --purple-50: rgba(200, 169, 110, 0.1);
+  --purple-100: rgba(200, 169, 110, 0.2);
+  --pink-50: rgba(232, 213, 176, 0.1);
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
@@ -367,8 +370,11 @@ body {
 }
 
 .logo {
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.15em;
   color: var(--text-primary);
   text-decoration: none;
   transition: color 0.3s;
@@ -376,7 +382,7 @@ body {
 
 @media (min-width: 640px) {
   .logo {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -393,16 +399,18 @@ body {
 }
 
 .nav-link {
+  font-family: 'Montserrat', sans-serif;
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   transition: color 0.3s;
 }
 
 .nav-link:hover {
-  color: var(--text-primary);
+  color: #c8a96e;
 }
 
 /* Mobile Menu Toggle */
@@ -470,7 +478,7 @@ body {
 }
 
 .nav-menu.mobile-active .nav-link:hover {
-  color: var(--purple-600);
+  color: #c8a96e;
 }
 
 .header-controls {
@@ -643,9 +651,10 @@ body {
 }
 
 .hero-title {
+  font-family: 'Cormorant Garamond', serif;
   font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 300;
+  letter-spacing: 0.2em;
   margin-bottom: 1rem;
 }
 
@@ -739,11 +748,12 @@ body {
 
 /* Section Title */
 .section-title {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 500;
   text-align: center;
   margin-bottom: 2.5rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 }
 
 @media (min-width: 640px) {
@@ -837,16 +847,21 @@ body {
 }
 
 .profile-label {
-  font-size: 0.875rem;
-  color: var(--purple-600);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  color: #c8a96e;
   margin-bottom: 0.5rem;
   font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 .profile-name {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
 }
 
 @media (min-width: 640px) {
@@ -882,12 +897,14 @@ body {
 }
 
 .subsection-label {
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
   color: var(--text-tertiary);
   margin-bottom: 1rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  opacity: 0.6;
 }
 
 @media (min-width: 640px) {
@@ -923,19 +940,20 @@ body {
 }
 
 .skill-tag {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background: rgba(200, 169, 110, 0.08);
+  border: 1px solid rgba(200, 169, 110, 0.4);
   padding: 0.5rem 1rem;
-  border-radius: 9999px;
+  border-radius: 2px;
   font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--text-secondary);
+  font-weight: 400;
+  color: #c8a96e;
+  letter-spacing: 0.08em;
   transition: all 0.3s;
 }
 
 .skill-tag:hover {
-  border-color: var(--purple-600);
-  color: var(--purple-600);
+  background: rgba(200, 169, 110, 0.15);
+  border-color: #c8a96e;
 }
 
 @media (min-width: 640px) {
@@ -990,7 +1008,7 @@ body {
   flex-shrink: 0;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--purple-600);
+  color: #c8a96e;
   min-width: 90px;
 }
 
@@ -1105,8 +1123,8 @@ body {
 }
 
 .contact-link:hover {
-  border-color: var(--purple-600);
-  color: var(--purple-600);
+  border-color: #c8a96e;
+  color: #c8a96e;
 }
 
 .contact-link svg {
@@ -1237,8 +1255,8 @@ body {
 }
 
 .tab.active {
-  background: var(--text-primary);
-  color: var(--bg-primary);
+  background: #c8a96e;
+  color: #ffffff;
 }
 
 /* Portfolio Grid */
@@ -1278,6 +1296,14 @@ body {
   cursor: pointer;
   position: relative;
   z-index: 1;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.video-card:hover {
+  border-color: rgba(200, 169, 110, 0.3);
+  box-shadow: 0 0 20px rgba(200, 169, 110, 0.1);
 }
 
 /* Hide card videos when modal is open */
@@ -1524,7 +1550,7 @@ body:has(.modal.active) .video-card video {
   padding: 0.375rem;
   background: linear-gradient(135deg, var(--purple-50), var(--pink-50));
   border-radius: 0.375rem;
-  border: 1px solid rgba(147, 51, 234, 0.1);
+  border: 1px solid rgba(200, 169, 110, 0.15);
 }
 
 @media (min-width: 640px) {
@@ -1688,8 +1714,11 @@ body:has(.modal.active) .video-card video {
 }
 
 .footer-brand h4 {
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.15em;
 }
 
 @media (min-width: 640px) {
@@ -2062,10 +2091,10 @@ body:has(.modal.active) .video-card video {
 
 .modal-affiliate {
   padding: 0.5rem;
-  background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(219, 39, 119, 0.3));
+  background: linear-gradient(135deg, rgba(200, 169, 110, 0.2), rgba(232, 213, 176, 0.2));
   backdrop-filter: blur(4px);
   border-radius: 0.375rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(200, 169, 110, 0.3);
 }
 
 @media (min-width: 640px) {
@@ -2115,7 +2144,7 @@ body:has(.modal.active) .video-card video {
   align-items: center;
   gap: 0.25rem;
   font-size: 0.625rem;
-  color: rgb(216, 180, 254);
+  color: #e8d5b0;
   text-decoration: none;
   font-weight: 600;
   flex-shrink: 0;
@@ -2129,7 +2158,7 @@ body:has(.modal.active) .video-card video {
 }
 
 .modal-affiliate-link:hover {
-  color: rgb(233, 213, 255);
+  color: #ffffff;
 }
 
 .modal-affiliate-link svg {
