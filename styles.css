@@ -2346,3 +2346,120 @@ body:has(.modal.active) .video-card video {
     height: 10px;
   }
 }
+
+/* Appearances Section */
+.appearances-section {
+  padding: 5rem 0 4rem;
+}
+
+.appearances-group {
+  margin-bottom: 3rem;
+}
+
+.appearances-group-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c8a96e;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.appearances-group-icon {
+  display: flex;
+  align-items: center;
+}
+
+.appearances-group-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: #c8a96e;
+}
+
+.appearances-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .appearances-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .appearances-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.appearance-card {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem 1.125rem;
+  transition: border-color 0.2s;
+}
+
+.appearance-card:hover {
+  border-color: #c8a96e;
+}
+
+.appearance-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c8a96e;
+  border: 1px solid rgba(200, 169, 110, 0.4);
+  border-radius: 3px;
+  padding: 0.15rem 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.appearance-badge--model {
+  color: #a0a0a0;
+  border-color: rgba(160, 160, 160, 0.3);
+}
+
+.appearance-brand {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 0.2rem;
+  line-height: 1.4;
+}
+
+.appearance-project {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.appearances-note {
+  font-size: 0.75rem;
+  opacity: 0.45;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.appearance-card--upcoming {
+  border-color: rgba(200, 169, 110, 0.5);
+  background: rgba(200, 169, 110, 0.04);
+}
+
+.appearance-badge--upcoming {
+  color: #e8c480;
+  border-color: rgba(232, 196, 128, 0.5);
+  animation: pulse-upcoming 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-upcoming {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
