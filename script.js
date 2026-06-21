@@ -438,23 +438,31 @@ function createCard(item, index) {
     const loadVideo = () => {
       if (!videoLoaded && video.dataset.src) {
         video.src = video.dataset.src;
-        video.preload = 'auto';
         videoLoaded = true;
         if (placeholder) placeholder.classList.add('is-loading');
 
-        video.addEventListener('canplaythrough', () => {
+        video.load();
+
+        // loadedmetadata = earliest reliable signal (header parsed)
+        video.addEventListener('loadedmetadata', () => {
           if (!canPlay) revealVideo();
         }, { once: true });
 
         video.addEventListener('canplay', () => {
-          setTimeout(() => {
-            if (!canPlay) revealVideo();
-          }, 500);
+          if (!canPlay) revealVideo();
         }, { once: true });
 
         video.addEventListener('playing', () => {
           if (!canPlay) revealVideo();
         }, { once: true });
+
+        // Error: remove spinner, keep placeholder (shows play icon instead)
+        video.addEventListener('error', () => {
+          if (placeholder) placeholder.classList.remove('is-loading');
+        }, { once: true });
+
+        // 8-second failsafe: reveal anyway to avoid permanent spinner
+        setTimeout(() => { if (!canPlay) revealVideo(); }, 8000);
       }
     };
 
