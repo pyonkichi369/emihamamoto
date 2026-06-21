@@ -374,7 +374,7 @@ function createCard(item, index) {
         <video class="card-media" data-src="${item.src}" muted loop playsinline preload="none" poster="" controlslist="nodownload" disablepictureinpicture oncontextmenu="return false;"></video>
         <div class="video-placeholder"></div>
       ` : `
-        <img class="card-media" src="${thumbnailSrc}" alt="${item.title}" loading="lazy">
+        <img class="card-media visible" src="${thumbnailSrc}" alt="${item.title}" loading="lazy">
       `}
       ${isVideo ? `
         <div class="play-overlay">
@@ -426,29 +426,30 @@ function createCard(item, index) {
     let videoLoaded = false;
     let canPlay = false;
 
+    const revealVideo = () => {
+      canPlay = true;
+      video.classList.add('visible');
+      card.classList.add('video-loaded');
+      if (placeholder) {
+        placeholder.classList.add('fade-out');
+        setTimeout(() => { placeholder.style.display = 'none'; }, 380);
+      }
+    };
+
     const loadVideo = () => {
       if (!videoLoaded && video.dataset.src) {
         video.src = video.dataset.src;
-        video.preload = 'auto'; // Changed to auto for better buffering
+        video.preload = 'auto';
         videoLoaded = true;
+        if (placeholder) placeholder.classList.add('is-loading');
 
-        // Wait for enough data to play smoothly
         video.addEventListener('canplaythrough', () => {
-          canPlay = true;
-          if (placeholder) {
-            placeholder.style.display = 'none';
-          }
+          if (!canPlay) revealVideo();
         }, { once: true });
 
-        // Fallback for canplay
         video.addEventListener('canplay', () => {
           setTimeout(() => {
-            if (!canPlay) {
-              canPlay = true;
-              if (placeholder) {
-                placeholder.style.display = 'none';
-              }
-            }
+            if (!canPlay) revealVideo();
           }, 500);
         }, { once: true });
       }
