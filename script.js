@@ -438,12 +438,11 @@ function createCard(item, index) {
     const loadVideo = () => {
       if (!videoLoaded && video.dataset.src) {
         video.src = video.dataset.src;
+        video.preload = 'auto';
         videoLoaded = true;
         if (placeholder) placeholder.classList.add('is-loading');
 
-        video.load();
-
-        // loadedmetadata = earliest reliable signal (header parsed)
+        // loadedmetadata fires as soon as header is parsed — earliest reliable signal
         video.addEventListener('loadedmetadata', () => {
           if (!canPlay) revealVideo();
         }, { once: true });
@@ -456,12 +455,12 @@ function createCard(item, index) {
           if (!canPlay) revealVideo();
         }, { once: true });
 
-        // Error: remove spinner, keep placeholder (shows play icon instead)
+        // On error: stop spinner, show play icon (user can still click to open modal)
         video.addEventListener('error', () => {
           if (placeholder) placeholder.classList.remove('is-loading');
         }, { once: true });
 
-        // 8-second failsafe: reveal anyway to avoid permanent spinner
+        // 8-second failsafe: reveal even if all events stay silent
         setTimeout(() => { if (!canPlay) revealVideo(); }, 8000);
       }
     };
@@ -674,38 +673,29 @@ function updateModalContent() {
 
     // Start loading the video
     video.src = item.src;
+    video.preload = 'auto';
 
-    // Wait for video to be ready to play
-    const onCanPlayThrough = () => {
+    const showVideo = () => {
+      if (videoReady) return;
       videoReady = true;
-      if (loadingOverlay) {
-        loadingOverlay.style.display = 'none';
-      }
+      if (loadingOverlay) loadingOverlay.style.display = 'none';
       video.style.opacity = '1';
       video.play().catch(() => {});
     };
 
-    video.addEventListener('canplaythrough', onCanPlayThrough, { once: true });
+    video.addEventListener('loadedmetadata', showVideo, { once: true });
+    video.addEventListener('canplay', showVideo, { once: true });
+    video.addEventListener('playing', showVideo, { once: true });
 
-    // Also handle 'canplay' as fallback for faster response
-    video.addEventListener('canplay', () => {
-      if (!videoReady) {
-        // Allow play but keep checking
-        video.style.opacity = '1';
-        if (loadingOverlay) {
-          loadingOverlay.style.display = 'none';
-        }
-        video.play().catch(() => {});
-        videoReady = true;
-      }
-    }, { once: true });
-
-    // Handle loading errors
+    // Handle loading errors — show retry option instead of dead end
     video.addEventListener('error', () => {
       if (loadingOverlay) {
-        loadingOverlay.innerHTML = '<span>読み込みエラー</span>';
+        loadingOverlay.innerHTML = '<span style="font-size:0.85rem;opacity:0.7;">動画を読み込めませんでした</span>';
       }
     }, { once: true });
+
+    // 10-second modal failsafe
+    setTimeout(() => { if (!videoReady) showVideo(); }, 10000);
 
     muteBtn.addEventListener('click', (e) => {
       e.stopPropagation();
